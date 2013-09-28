@@ -1,6 +1,6 @@
 {
     "name": "atropa-string",
-    "version": "2013.09.27-2334",
+    "version": "2013.09.27-2431",
     "description": "JavaScript utilities for manipulating strings.",
     "main": "./src/atropa-string.js",
     "directories": {
@@ -43,8 +43,8 @@
         }
     ],
     "dependencies": {
-        "atropa-header": "*",
-        "atropa-regex": "*",
-        "atropa-arrays": "*"
+        "atropa-header": "git+https://github.com/matthewkastor/atropa-header.git#master",
+        "atropa-regex": "git+https://github.com/matthewkastor/atropa-regex.git#master",
+        "atropa-arrays": "git+https://github.com/matthewkastor/atropa-arrays.git#master"
     }
 }
