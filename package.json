@@ -19,7 +19,8 @@
         "buildBrowserModule": "node dev/browserify.js",
         "buildDocs": "jsdoc-toolkit -v -d=./docs/jsdoc/ -r -s src/",
         "lint": "atropa-jslint ./src/atropa-string.js",
-        "srcFormat": "atropa-jsformatter ./src/atropa-string.js ./src/atropa-string.js"
+        "srcFormat": "atropa-jsformatter ./src/atropa-string.js ./src/atropa-string.js",
+        "pretest": "node dev/browserify.js"
     },
     "homepage": "https://github.com/matthewkastor/atropa-string/",
     "bugs": "https://github.com/matthewkastor/atropa-string/issues",
