@@ -6,23 +6,7 @@
  * @namespace Container for all Glorious classes, functions, etc.
  */
 var atropa = require('atropa-header');
-/**
- * Required module, the docs for it are in the <code>
- *  atropa-regex/docs</code> directory where this module 
- *  is located.
- * @see <a href="../../../node_modules/atropa-regex/docs/jsdoc/index.html">
- * ../../../node_modules/atropa-regex/docs/jsdoc/index.html</a>,
- *  unless you installed this dependency manually.
- */
 atropa.regex = require('atropa-regex').regex;
-/**
- * Required module, the docs for it are in the <code>
- *  atropa-arrays/docs</code> directory where this module 
- *  is located.
- * @see <a href="../../../node_modules/atropa-arrays/docs/jsdoc/index.html">
- * ../../../node_modules/atropa-arrays/docs/jsdoc/index.html</a>,
- *  unless you installed this dependency manually.
- */
 atropa.arrays = require('atropa-arrays').arrays;
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint

@@ -26,20 +26,222 @@
 
     window.atropa = {
         /// <summary></summary>
-        /// <field name="regex" type="">Required module, the docs for it are in the &lt;code&gt;
-        ///  atropa-regex/docs&lt;/code&gt; directory where this module 
-        ///  is located.</field>
-        /// <field name="arrays" type="">Required module, the docs for it are in the &lt;code&gt;
-        ///  atropa-arrays/docs&lt;/code&gt; directory where this module 
-        ///  is located.</field>
         /// <field name="string" type="">A few utilities for manipulating strings.</field>
+        /// <field name="data" type="">Container for gobal data related to the classes and functions.</field>
+        /// <field name="regex" type="">Container for regex functions.</field>
+        /// <field name="arrays" type="">Utilities for handling arrays.</field>
         /// <returns type="atropa"/>
                 
+        supportCheck: function(className, errorMessage) {
+            /// <summary>Checks whether this class has been marked as unsupported and throws an 
+            ///  error if it has.</summary>
+            /// <param name="className" type="String">The name of the class.</param>
+            /// <param name="errorMessage" type="String">Optional. A custom error message. Defaults to
+            ///  atropa.data[className].error</param>
+        }, 
+        
+        requires: function(className, requirementFn, errorMessage) {
+            /// <summary>Pushes a requirement check into atropa.data.requirements. The test
+            ///  tests whether the class is supported in this environment. Sets
+            ///  atropa.data[className]&apos;s support to unsupported and error to errorMessage
+            ///  if the requirementFn returns false. The requirement checks will all be run
+            ///  after the library has loaded.</summary>
+            /// <param name="className" type="String">The name of the class.</param>
+            /// <param name="requirementFn" type="Function">A function to test whether or not the class
+            ///  is supported in this environment. If supported, returns true otherwise
+            ///  return false.</param>
+            /// <param name="errorMessage" type="String">The error message to use when this class or its
+            ///  methods are called in unsupported environments. Defaults to:
+            ///  &apos;The atropa.&apos; + className + &apos; class is unsupported in this environment.&apos;;</param>
+        }
+        
     };
 
     var $x = window.atropa;
     $x.__namespace = "true";
     $x.__typeName = "atropa";
+})(this);
+
+  
+
+  
+/* vsdoc for atropa.arrays */
+
+(function (window) {
+    window.atropa = window.atropa || {};
+
+    window.atropa.arrays = {
+        /// <summary></summary>
+        /// <returns type="atropa.arrays"/>
+                
+        match: function(array1, array2) {
+            /// <summary>Compares two arrays based on size, contents, and element order.</summary>
+            /// <param name="array1" type="Array">One array you want compared to another.</param>
+            /// <param name="array2" type="Array">The other array.</param>
+            /// <returns type="Boolean">Returns true or false depending on
+            ///  whether or not the arrays matched in size, composition, and
+            ///  element order.</returns>
+        }, 
+        
+        subtract: function(a, (minuend)) {
+            /// <summary>Subtracts one array from another array based on the unique values in both
+            ///  sets.</summary>
+            /// <param name="a" type="Array">(subtrahend) The array to subtract.</param>
+            /// <param name="(minuend)" type="Array">fromB The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;</param>
+            /// <returns type="Array">Returns a new array containing only the unique
+            ///  values found in &lt;code&gt;fromB&lt;/code&gt; that are not present in &lt;code&gt;a&lt;/code&gt;</returns>
+        }, 
+        
+        intersect: function(array1, array2) {
+            /// <summary>Returns an array of values found in both of the given arrays.</summary>
+            /// <param name="array1" type="Array">An array.</param>
+            /// <param name="array2" type="Array">Another array.</param>
+            /// <returns type="Array">Returns an array of values found in both of the given
+            ///  arrays.</returns>
+        }, 
+        
+        getFrequency: function(arr) {
+            /// <summary>Calculates the frequency of items occurring in an array.</summary>
+            /// <param name="arr" type="Array">The array to calculate frequencies from.</param>
+            /// <returns type="Object">Returns an object whose keys are each unique
+            ///  elements from the array and their value is their frequency of
+            ///  occurrence within the array. Be careful that your array does
+            ///  not contain values matching object instance property names.</returns>
+        }, 
+        
+        getUnique: function(largeArray) {
+            /// <summary>Gets Unique values from an array.</summary>
+            /// <param name="largeArray" type="Array">The array with duplicate values in it.</param>
+            /// <returns type="Array">Returns a new array containing only the unique
+            ///  values found in the largeArray.</returns>
+        }, 
+        
+        removeEmptyElements: function(arrayWithEmptyElements) {
+            /// <summary>Removes empty strings from the given array.</summary>
+            /// <param name="arrayWithEmptyElements" type="Array">The array with empty strings in it.</param>
+            /// <returns type="Array">Returns a new array with empty strings removed.</returns>
+        }, 
+        
+        reindex: function(arr) {
+            /// <summary>Reindexes an array.</summary>
+            /// <param name="arr" type="Array">The array with discontinuous keys.</param>
+            /// <returns type="Array">Returns an array with continuous keys.</returns>
+        }, 
+        
+        sortNumerically: function(arr) {
+            /// <summary>Sorts an array&apos;s elements numerically.</summary>
+            /// <param name="arr" type="Array">The array to sort. All elements of the array must be
+            ///  number-ish.</param>
+            /// <returns type="Array">Returns an array whose elements are in numeric order.</returns>
+        }, 
+        
+        sortAlphabetically: function(arr) {
+            /// <summary>Throws an error, &lt;code&gt;String.prototype.localeCompare&lt;/code&gt; is not 
+            ///  standardized.
+            /// 
+            ///  Yes, localeCompare is in the standard but, at this time the actual
+            ///  comparison is implementation dependant. This means that &quot;alphabetical order&quot;
+            ///  can be different on different platforms. What I found was that in node the
+            ///  array of &lt;code&gt;[&apos;a&apos;,&apos;Z&apos;,&apos;A&apos;,&apos;z&apos;]&lt;/code&gt; would be sorted to
+            ///  &lt;code&gt;[&apos;A&apos;,&apos;Z&apos;,&apos;a&apos;,&apos;z&quot;]&lt;/code&gt;, while on
+            ///  firefox it would be sorted to &lt;code&gt;[&apos;a&apos;,&apos;A&apos;,&apos;z&apos;,&apos;Z&apos;]&lt;/code&gt;. Who knows if
+            ///  another implementor would sort it &lt;code&gt;[&apos;A&apos;,&apos;a&apos;,&apos;Z&apos;,&apos;z&apos;]&lt;/code&gt;?
+            /// 
+            /// In order to provide a reliable implementation I would have to create my own
+            ///  implementation of &lt;code&gt;String.prototype.localeCompare&lt;/code&gt; and that&apos;s
+            ///  just too much work for me to do alone.</summary>
+            /// <param name="arr" type=""></param>
+        }, 
+        
+        "delete": function(arr, index) {
+            /// <summary>Deletes the given element from the array at the given index. It basically
+            ///  does what you would expect the delete operator to do, except the delete
+            ///  operator doesn&apos;t do what you would expect.</summary>
+            /// <param name="arr" type="Array">The array.</param>
+            /// <param name="index" type="Number">The index of the element to delete.</param>
+            /// <returns type="">Returns an array with the element removed, contiguous keys, and
+            ///  whose length is 1 less than the input array.</returns>
+        }
+        
+    };
+
+    var $x = window.atropa.arrays;
+    $x.__namespace = "true";
+    $x.__typeName = "atropa.arrays";
+})(this);
+
+  
+
+  
+/* vsdoc for atropa.data */
+
+(function (window) {
+    window.atropa = window.atropa || {};
+
+    window.atropa.data = {
+        /// <summary></summary>
+        /// <returns type="atropa.data"/>
+                
+    };
+
+    var $x = window.atropa.data;
+    $x.__namespace = "true";
+    $x.__typeName = "atropa.data";
+})(this);
+
+  
+
+  
+/* vsdoc for atropa.regex */
+
+(function (window) {
+    window.atropa = window.atropa || {};
+
+    window.atropa.regex = {
+        /// <summary></summary>
+        /// <field name="patterns" type="">Regex patterns.</field>
+        /// <returns type="atropa.regex"/>
+                
+        appendPrefixesAndSuffixes: function(word, threshold) {
+            /// <summary>Appends common prefix, suffix, and word boundary regex strings to
+            /// the supplied word.</summary>
+            /// <param name="word" type="String">The word to append prefix and suffix to</param>
+            /// <param name="threshold" type="Integer" integer="true">The word.length at which it does not
+            /// make sense to append prefix and suffix. Defaults to 3.</param>
+            /// <returns type="String">Returns the supplied word with prefix, suffix,
+            /// and word boundaries attached. If the word.length was not greater
+            /// than the threshold, only word boundaries are attached. The string
+            /// represents a RegEx which should pick out most forms of regular
+            /// words.</returns>
+        }
+        
+    };
+
+    var $x = window.atropa.regex;
+    $x.__namespace = "true";
+    $x.__typeName = "atropa.regex";
+})(this);
+
+  
+
+  
+/* vsdoc for atropa.regex.patterns */
+
+(function (window) {
+    window.atropa.regex = window.atropa.regex || {};
+
+    window.atropa.regex.patterns = {
+        /// <summary></summary>
+        /// <field name="repeatedWords" type="">finds repeated words and phrases</field>
+        /// <field name="paragraphBreaks" type="">finds paragraph breaks</field>
+        /// <field name="lineBreaks" type="">finds line breaks</field>
+        /// <returns type="atropa.regex.patterns"/>
+                
+    };
+
+    var $x = window.atropa.regex.patterns;
+    $x.__namespace = "true";
+    $x.__typeName = "atropa.regex.patterns";
 })(this);
 
   
