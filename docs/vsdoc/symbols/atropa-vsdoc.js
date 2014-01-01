@@ -6,8 +6,8 @@
 
     window.atropa = {
         /// <summary></summary>
-        /// <field name="string" type="">A few utilities for manipulating strings.</field>
         /// <field name="data" type="">Container for gobal data related to the classes and functions.</field>
+        /// <field name="string" type="">A few utilities for manipulating strings.</field>
         /// <field name="regex" type="">Container for regex functions.</field>
         /// <field name="arrays" type="">Utilities for handling arrays.</field>
         /// <returns type="atropa"/>
