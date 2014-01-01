@@ -1,6 +1,6 @@
 {
   "name": "atropa-string",
-  "version": "2013.10.19",
+  "version": "2013.10.20",
   "description": "JavaScript utilities for manipulating strings.",
   "main": "./src/atropa-string.js",
   "directories": {
