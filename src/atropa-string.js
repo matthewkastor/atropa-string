@@ -21,7 +21,6 @@ atropa.arrays = require('atropa-arrays').arrays;
  *  ☭ Hial Atropa!! ☭
  * @namespace A few utilities for manipulating strings.
  * @requires atropa.regex.patterns
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.string">tests</a>
  */
 atropa.string = {};
 /**
