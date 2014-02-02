@@ -1,6 +1,6 @@
 {
   "name": "atropa-string",
-  "version": "2014.1.2",
+  "version": "2014.2.1",
   "description": "JavaScript utilities for manipulating strings.",
   "main": "./src/atropa-string.js",
   "directories": {
@@ -21,7 +21,7 @@
     "lint": "atropa-jslint ./src/atropa-string.js",
     "srcFormat": "atropa-jsformatter ./src/atropa-string.js ./src/atropa-string.js",
     "pretest": "node dev/browserify.js",
-    "buildVsdocs": "jsdoc-toolkit -v -d=./docs/vsdoc/ -t=./dev/vsdoc/ -r -s node_modules/atropa-header/src/ src/ node_modules/atropa-regex/src/ node_modules/atropa-arrays/src/"
+    "buildVsdocs": "jsdoc-toolkit -v -d=./docs/vsdoc/ -t=./node_modules/jsdoc-toolkit/templates/vsdoc/ -r -s node_modules/atropa-header/src/ src/ node_modules/atropa-regex/src/ node_modules/atropa-arrays/src/"
   },
   "homepage": "https://github.com/matthewkastor/atropa-string/",
   "bugs": "https://github.com/matthewkastor/atropa-string/issues",
