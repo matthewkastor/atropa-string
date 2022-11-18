@@ -25,12 +25,20 @@
     
 
     window.atropa = {
-        /// <summary></summary>
-        /// <field name="data" type="">Container for gobal data related to the classes and functions.</field>
-        /// <field name="string" type="">A few utilities for manipulating strings.</field>
-        /// <field name="regex" type="">Container for regex functions.</field>
-        /// <field name="arrays" type="">Utilities for handling arrays.</field>
+        /// <summary>Container for all Glorious classes, functions, etc.</summary>
         /// <returns type="atropa"/>
+      
+        /// <field name="data" type="">Container for gobal data related to the classes and functions.</field>
+        data : {}, 
+      
+        /// <field name="string" type="">A few utilities for manipulating strings.</field>
+        string : {}, 
+      
+        /// <field name="regex" type="">Container for regex functions.</field>
+        regex : {}, 
+      
+        /// <field name="arrays" type="">Utilities for handling arrays.</field>
+        arrays : {}, 
                 
         supportCheck: function(className, errorMessage) {
             /// <summary>Checks whether this class has been marked as unsupported and throws an 
@@ -71,7 +79,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.arrays = {
-        /// <summary></summary>
+        /// <summary>Utilities for handling arrays.</summary>
         /// <returns type="atropa.arrays"/>
                 
         match: function(array1, array2) {
@@ -83,11 +91,11 @@
             ///  element order.</returns>
         }, 
         
-        subtract: function(a, (minuend)) {
+        subtract: function(a, fromB) {
             /// <summary>Subtracts one array from another array based on the unique values in both
             ///  sets.</summary>
             /// <param name="a" type="Array">(subtrahend) The array to subtract.</param>
-            /// <param name="(minuend)" type="Array">fromB The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;</param>
+            /// <param name="fromB" type="Array">(minuend) The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;</param>
             /// <returns type="Array">Returns a new array containing only the unique
             ///  values found in &lt;code&gt;fromB&lt;/code&gt; that are not present in &lt;code&gt;a&lt;/code&gt;</returns>
         }, 
@@ -153,7 +161,7 @@
             /// <param name="arr" type=""></param>
         }, 
         
-        "delete": function(arr, index) {
+        deleteElement: function(arr, index) {
             /// <summary>Deletes the given element from the array at the given index. It basically
             ///  does what you would expect the delete operator to do, except the delete
             ///  operator doesn&apos;t do what you would expect.</summary>
@@ -179,7 +187,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.data = {
-        /// <summary></summary>
+        /// <summary>Container for gobal data related to the classes and functions.</summary>
         /// <returns type="atropa.data"/>
                 
     };
@@ -198,9 +206,11 @@
     window.atropa = window.atropa || {};
 
     window.atropa.regex = {
-        /// <summary></summary>
-        /// <field name="patterns" type="">Regex patterns.</field>
+        /// <summary>Container for regex functions.</summary>
         /// <returns type="atropa.regex"/>
+      
+        /// <field name="patterns" type="">Regex patterns</field>
+        patterns : {}, 
                 
         appendPrefixesAndSuffixes: function(word, threshold) {
             /// <summary>Appends common prefix, suffix, and word boundary regex strings to
@@ -231,11 +241,17 @@
     window.atropa.regex = window.atropa.regex || {};
 
     window.atropa.regex.patterns = {
-        /// <summary></summary>
-        /// <field name="repeatedWords" type="">finds repeated words and phrases</field>
-        /// <field name="paragraphBreaks" type="">finds paragraph breaks</field>
-        /// <field name="lineBreaks" type="">finds line breaks</field>
+        /// <summary>Regex patterns</summary>
         /// <returns type="atropa.regex.patterns"/>
+      
+        /// <field name="repeatedWords" type="RegExp">finds repeated words and phrases</field>
+        repeatedWords : new RegExp(), 
+      
+        /// <field name="paragraphBreaks" type="RegExp">finds paragraph breaks</field>
+        paragraphBreaks : new RegExp(), 
+      
+        /// <field name="lineBreaks" type="RegExp">finds line breaks</field>
+        lineBreaks : new RegExp()
                 
     };
 
@@ -253,7 +269,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.string = {
-        /// <summary></summary>
+        /// <summary>A few utilities for manipulating strings.</summary>
         /// <returns type="atropa.string"/>
                 
         removeRepeatedWord: function(string) {

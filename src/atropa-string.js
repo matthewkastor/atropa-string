@@ -1,4 +1,7 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+/*jslint
+    node: true
+*/
 var atropa = require('atropa-header');
 atropa.regex = require('atropa-regex').regex;
 atropa.arrays = require('atropa-arrays').arrays;
